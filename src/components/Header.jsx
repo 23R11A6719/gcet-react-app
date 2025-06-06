@@ -1,23 +1,43 @@
+// Header.jsx
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { AppContext } from "../App";
-import '../App.css';
+import { Link } from "react-router-dom";
+import { FaHome, FaShoppingCart, FaSignInAlt, FaSignOutAlt, FaBoxOpen, FaStore } from "react-icons/fa";
+import "./Header.css";
 
 export default function Header() {
-  const { user, cart } = useContext(AppContext);
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const { user } = useContext(AppContext);
 
   return (
-    <header>
-      <h1>My Online Store</h1>
-      <nav>
-        <Link to="/">Home 🏠︎</Link>
-        <Link to="/cart">Cart 🛒 ({totalItems})</Link>
-        {user?.token ? (
-          <Link to="/logout">Logout</Link>
+    <header className="header">
+      <div className="logo">
+        <FaStore style={{ marginRight: "8px" }} />
+        My Online Shop
+      </div>
+      <nav className="nav">
+        <Link to="/">
+          <FaHome style={{ marginRight: "5px" }} />
+          Home
+        </Link>
+        <Link to="/cart">
+          <FaShoppingCart style={{ marginRight: "5px" }} />
+          Cart
+        </Link>
+        {user.token ? (
+          <Link to="/logout">
+            <FaSignOutAlt style={{ marginRight: "5px" }} />
+            Logout
+          </Link>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to="/login">
+            <FaSignInAlt style={{ marginRight: "5px" }} />
+            Login
+          </Link>
         )}
+        <Link to="/orders">
+          <FaBoxOpen style={{ marginRight: "5px" }} />
+          Orders
+        </Link>
       </nav>
     </header>
   );

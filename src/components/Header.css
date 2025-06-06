@@ -1,0 +1,36 @@
+/* Header.css */
+
+.header {
+  background-color: #1e1e2f; /* Dark navy background */
+  color: #f0f0f0; /* Light text for contrast */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00e5ff; /* Bright cyan */
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #cfd8dc; /* Soft grey-blue */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #00bcd4; /* Vibrant cyan on hover */
+  text-decoration: underline;
+}
